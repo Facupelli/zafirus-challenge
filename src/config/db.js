@@ -13,7 +13,11 @@ const pool = new Pool({
 });
 
 pool.on("connect", () => {
-  console.log("Connection pool estabilshed with database");
+  console.log("Connection pool established with database");
+});
+
+pool.on("error", (err) => {
+  console.error("Error connecting to database", err);
 });
 
 export default pool;

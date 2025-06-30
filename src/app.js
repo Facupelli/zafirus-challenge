@@ -29,11 +29,6 @@ app.use(errorHandler);
 createUserTable();
 createTodoTable();
 
-app.get("/", async (req, res) => {
-  const result = await pool.query("SELECT current_database()");
-  res.send(`The database name is: ${result.rows[0].current_database}`);
-});
-
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

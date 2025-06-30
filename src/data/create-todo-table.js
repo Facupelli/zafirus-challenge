@@ -20,10 +20,10 @@ const createTodoTable = async () => {
     id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     description TEXT,
-    limit_date TIMESTAMP,
+    limit_date TIMESTAMPTZ,
     status todo_status DEFAULT 'pending', 
     user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    created_at TIMESTAMP DEFAULT NOW()
+    created_at TIMESTAMPTZ DEFAULT NOW()
    );  
   `;
   const createTodosIndexQuery = `
