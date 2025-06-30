@@ -42,6 +42,11 @@ export const updateTodo = async (todo, userId) => {
      RETURNING *`,
     [title, description, limitDate, status, id, userId]
   );
+
+  if (result.rowCount === 0) {
+    throw new NotFoundError("Todo not found");
+  }
+
   return result.rows[0];
 };
 

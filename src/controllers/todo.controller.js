@@ -1,5 +1,5 @@
 import * as todosService from "../services/todo.service.js";
-import { handleResponse } from "../utils/response.utils.js";
+import { handleResponse } from "../utils/response.util.js";
 
 export const createTodo = async (req, res, next) => {
   const todoData = req.body;
@@ -52,10 +52,6 @@ export const updateTodo = async (req, res, next) => {
       },
       userId
     );
-
-    if (!updatedTodo) {
-      return handleResponse(res, 404, "Todo not found");
-    }
 
     handleResponse(res, 200, "Todo updated successfully", updatedTodo);
   } catch (err) {
