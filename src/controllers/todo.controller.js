@@ -1,5 +1,5 @@
 import * as todosService from "../services/todo.service.js";
-import { handleResponse } from "../utils/response.util.js";
+import { handleResponse } from "../utils/response.utils.js";
 
 export const createTodo = async (req, res, next) => {
   const todoData = req.body;
