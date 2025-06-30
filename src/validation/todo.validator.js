@@ -12,7 +12,7 @@ export const createTodoSchema = Joi.object({
 
 export const updateTodoSchema = Joi.object({
   title: Joi.string().min(3).max(100).optional(),
-  description: Joi.string().allow(""),
-  limitDate: Joi.date().iso().allow(null),
-  status: Joi.string().valid("pending", "in_progress", "completed"),
+  description: Joi.string().optional(),
+  limitDate: Joi.date().iso().optional(),
+  status: Joi.string().valid("pending", "in_progress", "completed").optional(),
 }).min(1);

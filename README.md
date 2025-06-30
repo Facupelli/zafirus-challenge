@@ -106,21 +106,19 @@ cd fullstack-challenge-backend
 npm install
 ```
 
-### 3. Configurar la base de datos
-
-Ejecuta las migraciones para configurar las tablas en PostgreSQL:
+### 3. Iniciar el servidor en desarrollo
 
 ```bash
-npm run migrate up
-```
-
-### 4. Iniciar el servidor
-
-```bash
-npm start
+npm run dev
 ```
 
 El servidor estará disponible en `http://localhost:5001`.
+
+### 3. Iniciar el servidor en producción
+
+```bash
+npm run start
+```
 
 ---
 
@@ -134,6 +132,7 @@ El servidor estará disponible en `http://localhost:5001`.
 
 ## Posibles Mejoras
 
+- **Typescript**: Agregar Typescript para reducir errores comunes, mejorar legibilidad y mantenimiento.
 - **Migración**: Configurar alguna herramienta para manejar migraciones de la base de datos.
 - **Pruebas**: Implementar pruebas unitarias y o pruebas de integración para garantizar la fiabilidad del código.
 - **Documentación**: Considerar el uso de herramientas como Swagger/OpenAPI para documentar la API automáticamente.
