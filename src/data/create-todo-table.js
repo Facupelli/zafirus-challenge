@@ -26,6 +26,9 @@ const createTodoTable = async () => {
     created_at TIMESTAMP DEFAULT NOW()
    );  
   `;
+  const createTodosIndexQuery = `
+   CREATE INDEX IF NOT EXISTS idx_todos_user_id ON todos(user_id);
+  `;
 
   try {
     await pool.query(createEnumTypeQuery);
@@ -33,6 +36,9 @@ const createTodoTable = async () => {
 
     await pool.query(createTodosTableQuery);
     console.log("Todo table created or already exists.");
+
+    await pool.query(createTodosIndexQuery);
+    console.log("Todos index created or already exists");
   } catch (err) {
     console.log("Error creating Todo table", err);
   }
