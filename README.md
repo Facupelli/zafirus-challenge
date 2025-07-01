@@ -107,6 +107,12 @@ cd fullstack-challenge-backend
 npm install
 ```
 
+### 3. Correr migraciones
+
+```bash
+npm run db:migrate
+```
+
 ### 3. Iniciar el servidor en desarrollo
 
 ```bash
@@ -134,6 +140,5 @@ npm run start
 ## Posibles Mejoras
 
 - **Typescript**: Agregar Typescript para reducir errores comunes, mejorar legibilidad y mantenimiento.
-- **Migración**: Configurar alguna herramienta para manejar migraciones de la base de datos.
 - **Pruebas**: Implementar pruebas unitarias y o pruebas de integración para garantizar la fiabilidad del código.
 - **Documentación**: Considerar el uso de herramientas como Swagger/OpenAPI para documentar la API automáticamente.

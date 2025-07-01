@@ -6,10 +6,6 @@ export const findUserByEmail = async (email) => {
     email,
   ]);
 
-  if (result.rowCount === 0) {
-    throw new NotFoundError("User not found");
-  }
-
   return result.rows[0];
 };
 

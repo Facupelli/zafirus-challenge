@@ -3,12 +3,9 @@ import cors from "cors";
 import passport from "passport";
 import dotenv from "dotenv";
 import configurePassport from "./config/passport.js";
-import pool from "./config/db.js";
 import todoRouter from "./routes/todo.route.js";
 import authRouter from "./routes/auth.route.js";
 import errorHandler from "./middlewares/error.middleware.js";
-import createTodoTable from "./data/create-todo-table.js";
-import createUserTable from "./data/create-user-table.js";
 
 dotenv.config();
 
@@ -25,9 +22,6 @@ app.use("/api/todo", todoRouter);
 app.use("/api/auth", authRouter);
 
 app.use(errorHandler);
-
-createUserTable();
-createTodoTable();
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
