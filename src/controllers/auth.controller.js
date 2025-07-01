@@ -41,11 +41,8 @@ export const login = async (req, res, next) => {
 
     const token = generateToken(user);
 
-    const sanitizedUser = userService.sanitizeUser(user);
-
     handleResponse(res, 200, "Login successful", {
       token,
-      user: sanitizedUser,
     });
   } catch (error) {
     if (error instanceof NotFoundError) {

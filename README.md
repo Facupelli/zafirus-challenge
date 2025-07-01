@@ -23,7 +23,6 @@ Este proyecto es la parte del backend de una aplicación de gestión de tareas p
 
 - **Registro**: Permite a los usuarios registrarse con email y contraseña.
 - **Login**: Autenticación de usuarios con email y contraseña.
-- **JWT**: Generación de tokens JWT para autenticar solicitudes.
 
 ### Gestión de Tareas
 
@@ -47,6 +46,8 @@ Este proyecto es la parte del backend de una aplicación de gestión de tareas p
 - **POST `/login`**: Inicio de sesión.
 
 ### Tareas (`/api/todo`)
+
+🔒 Nota de Autenticación: Todas las rutas de /api/todo están protegidas. Debes incluir el token JWT que recibes al iniciar sesión en la cabecera de la solicitud de la siguiente manera: Authorization: Bearer <tu_token>.
 
 - **POST `/`**: Crear una nueva tarea.
 - **GET `/`**: Listar todas las tareas del usuario autenticado.
