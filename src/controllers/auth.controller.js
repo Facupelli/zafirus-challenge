@@ -1,7 +1,11 @@
 import * as userService from "../services/user.service.js";
 import { hashPassword, comparePassword } from "../utils/password.utils.js";
 import { handleResponse } from "../utils/response.utils.js";
-import { ConflictError, UnauthorizedError } from "../utils/error.utils.js";
+import {
+  ConflictError,
+  NotFoundError,
+  UnauthorizedError,
+} from "../utils/error.utils.js";
 import { generateToken } from "../utils/jwt.utils.js";
 
 export const register = async (req, res, next) => {
@@ -29,9 +33,7 @@ export const login = async (req, res, next) => {
 
   try {
     const user = await userService.findUserByEmail(email);
-    const isMatch = user
-      ? await comparePassword(password, user.password_hash)
-      : false;
+    const isMatch = await comparePassword(password, user.password_hash);
 
     if (!user || !isMatch) {
       throw new UnauthorizedError("Invalid credentials.");
@@ -46,6 +48,10 @@ export const login = async (req, res, next) => {
       user: sanitizedUser,
     });
   } catch (error) {
+    if (error instanceof NotFoundError) {
+      return next(new UnauthorizedError("Invalid credentials."));
+    }
+
     next(error);
   }
 };
